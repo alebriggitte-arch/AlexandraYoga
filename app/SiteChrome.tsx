@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FormEvent, ReactNode, useState } from "react";
 import { common, Language, localizedHref } from "./i18n";
@@ -14,21 +13,20 @@ const nav = [
 
 export function Header({ light = false, language = "it" }: { light?: boolean; language?: Language }) {
   const path = usePathname();
-  const [open, setOpen] = useState(false);
   const copy = common[language];
   const alternate = language === "it" ? "en" : "it";
   return <>
+    <input className="menu-toggle-control" id="site-menu-toggle" type="checkbox" aria-label={copy.menuOpen}/>
     <header className={`site-header ${light ? "header-dark" : ""}`}>
-      <Link className="wordmark" href="/" aria-label="Alexandra Huaman — home"><span>AH</span><strong>Alexandra Huaman</strong></Link>
-      <nav aria-label="Navigazione principale">{nav.map(([, href], i) => <Link className={path === href ? "active" : ""} key={href} href={localizedHref(href, language)}>{copy.nav[i]}</Link>)}</nav>
-      <div className="header-actions"><div className="language-toggle" aria-label={copy.languageLabel}><span className={language === "it" ? "selected" : ""}>IT</span><Link href={localizedHref(path, alternate)} aria-label={alternate === "en" ? "Switch to English" : "Passa all’italiano"}><i></i></Link><span className={language === "en" ? "selected" : ""}>EN</span></div><Link className="contact-link" href={localizedHref("/contatti", language)}>{copy.talk} <span>↗</span></Link></div>
-      <button className="menu-button" aria-label={copy.menuOpen} aria-expanded={open} onClick={() => setOpen(true)}><i></i><i></i></button>
+      <a className="wordmark" href={localizedHref("/", language)} aria-label="Alexandra Huaman — home"><span>AH</span><strong>Alexandra Huaman</strong></a>
+      <nav aria-label="Navigazione principale">{nav.map(([, href], i) => <a className={path === href ? "active" : ""} key={href} href={localizedHref(href, language)}>{copy.nav[i]}</a>)}</nav>
+      <div className="header-actions"><div className="language-toggle" aria-label={copy.languageLabel}><span className={language === "it" ? "selected" : ""}>IT</span><a href={localizedHref(path, alternate)} aria-label={alternate === "en" ? "Switch to English" : "Passa all’italiano"}><i></i></a><span className={language === "en" ? "selected" : ""}>EN</span></div><a className="contact-link" href={localizedHref("/contatti", language)}>{copy.talk} <span>↗</span></a></div>
+      <label className="menu-button" htmlFor="site-menu-toggle" aria-hidden="true"><i></i><i></i></label>
     </header>
-    <div className={`menu-overlay ${open ? "open" : ""}`} aria-hidden={!open}>
-      <button className="menu-close" aria-label={copy.menuClose} onClick={() => setOpen(false)}>×</button>
+    <div className="menu-overlay">
       <p>Alexandra Huaman</p>
-      <nav>{[[copy.menuHome, "/"], ...nav.map(([, href], i) => [copy.nav[i], href]), [copy.menuContact, "/contatti"]].map(([label, href], i) => <Link key={href} href={localizedHref(href, language)} onClick={() => setOpen(false)}><small>0{i + 1}</small>{label}<span>↗</span></Link>)}</nav>
-      <div className="menu-footer"><div className="language-toggle mobile-language" aria-label={copy.languageLabel}><span className={language === "it" ? "selected" : ""}>IT</span><Link href={localizedHref(path, alternate)} onClick={() => setOpen(false)}><i></i></Link><span className={language === "en" ? "selected" : ""}>EN</span></div><div className="menu-meta">{copy.tagline}</div></div>
+      <nav>{[[copy.menuHome, "/"], ...nav.map(([, href], i) => [copy.nav[i], href]), [copy.menuContact, "/contatti"]].map(([label, href], i) => <a key={href} href={localizedHref(href, language)}><small>0{i + 1}</small>{label}<span>↗</span></a>)}</nav>
+      <div className="menu-footer"><div className="language-toggle mobile-language" aria-label={copy.languageLabel}><span className={language === "it" ? "selected" : ""}>IT</span><a href={localizedHref(path, alternate)}><i></i></a><span className={language === "en" ? "selected" : ""}>EN</span></div><div className="menu-meta">{copy.tagline}</div></div>
     </div>
   </>;
 }
@@ -52,5 +50,5 @@ export function ContactForm({ language = "it" }: { language?: Language }) {
     window.location.href = `mailto:alexandrabhuaman@gmail.com?subject=${subject}&body=${body}`;
     setSent(true);
   }
-  return <form className="contact-form" onSubmit={submit}><label>{c.name}<input required name="nome" placeholder={c.namePlaceholder}/></label><label>{c.email}<input required name="email" type="email" placeholder="name@email.com"/></label><label>{c.need}<select name="interesse">{c.options.map(option => <option key={option}>{option}</option>)}</select></label><label>{c.tell}<textarea required name="messaggio" rows={4} placeholder={c.message}/></label><button type="submit">{sent ? c.sent : c.send}</button></form>;
+  return <form className="contact-form" action="mailto:alexandrabhuaman@gmail.com" method="get" onSubmit={submit}><label>{c.name}<input required name="nome" placeholder={c.namePlaceholder}/></label><label>{c.email}<input required name="email" type="email" placeholder="name@email.com"/></label><label>{c.need}<select name="interesse">{c.options.map(option => <option key={option}>{option}</option>)}</select></label><label>{c.tell}<textarea required name="messaggio" rows={4} placeholder={c.message}/></label><button type="submit">{sent ? c.sent : c.send}</button></form>;
 }

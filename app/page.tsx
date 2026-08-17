@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Header } from "./SiteChrome";
 import { localizedHref, resolveLanguage } from "./i18n";
 
@@ -18,7 +17,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<Re
           <p className="eyebrow">{c.role}</p>
           <h1>{c.title}</h1>
           <p className="lede">{c.lede}</p>
-          <div className="hero-actions"><Link className="primary-action" href={localizedHref("/percorsi", language)}>{c.paths} <span>→</span></Link><Link className="text-action" href={localizedHref("/chi-sono", language)}>{c.about}</Link></div>
+          <div className="hero-actions"><a className="primary-action" href={localizedHref("/percorsi", language)}>{c.paths} <span>→</span></a><a className="text-action" href={localizedHref("/chi-sono", language)}>{c.about}</a></div>
         </div>
         <div className="hero-image" role="img" aria-label={c.image}><div className="seal"><span>✦</span>{c.seal}</div></div>
         <div className="hero-index"><span>01</span><i></i><span>{c.index}</span></div>
