@@ -70,3 +70,30 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 .header-dark .language-picker a.selected{background:var(--ink);color:var(--paper)}
 .language-picker.mobile-language{display:none}
 @media(max-width:1180px){.language-picker.mobile-language{display:flex;color:white}}
+
+/* Portrait-aware photographic composition */
+.hero-image{
+  background-color:var(--deep);
+  background-image:linear-gradient(90deg,#57362d 0%,rgba(87,54,45,.98) 37%,rgba(87,54,45,.72) 52%,rgba(87,54,45,.12) 72%,transparent 88%),url('/alexandra-photo-hero.jpg');
+  background-size:100% 100%,auto 100%;
+  background-position:center,right center;
+  background-repeat:no-repeat;
+}
+.image-about{background-position:center 38%}
+.image-stretch{background-position:center 88%}
+.image-barre{background-position:center 84%}
+.image-realing{background-position:center 78%}
+.image-collab{background-position:center 84%}
+.path-photo{height:480px;min-height:480px;align-self:center}
+@media(max-width:900px){
+  .hero-image{
+    background-image:linear-gradient(0deg,rgba(64,38,30,.97) 0%,rgba(64,38,30,.72) 44%,rgba(64,38,30,.08) 78%),url('/alexandra-photo-hero.jpg');
+    background-size:100% 100%,auto 100%;
+    background-position:center,center;
+  }
+  .image-about{background-position:center 35%}
+  .image-stretch{background-position:center 90%}
+  .image-barre,.image-collab{background-position:center 86%}
+  .image-realing{background-position:center 80%}
+  .path-photo{height:360px;min-height:360px}
+}
