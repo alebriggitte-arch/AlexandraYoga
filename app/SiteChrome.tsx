@@ -26,7 +26,7 @@ export function Header({ light = false, language = "it" }: { light?: boolean; la
     <div className="menu-overlay">
       <p>Alexandra Huaman</p>
       <nav>{[[copy.menuHome, "/"], ...nav.map(([, href], i) => [copy.nav[i], href]), [copy.menuContact, "/contatti"]].map(([label, href], i) => <a key={href} href={localizedHref(href, language)}><small>0{i + 1}</small>{label}<span>↗</span></a>)}</nav>
-      <div className="menu-footer"><div className="language-toggle mobile-language" aria-label={copy.languageLabel}><span className={language === "it" ? "selected" : ""}>IT</span><a href={localizedHref(path, alternate)}><i></i></a><span className={language === "en" ? "selected" : ""}>EN</span></div><div className="menu-meta">{copy.tagline}</div></div>
+      <div className="menu-footer"><div className="language-toggle mobile-language" aria-label={copy.languageLabel}><span className={language === "it" ? "selected" : ""}>IT</span><a href={localizedHref(path, alternate)} aria-label={alternate === "en" ? "Switch to English" : "Passa all’italiano"}><i></i></a><span className={language === "en" ? "selected" : ""}>EN</span></div><div className="menu-meta">{copy.tagline}</div></div>
     </div>
   </>;
 }
