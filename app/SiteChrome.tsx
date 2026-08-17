@@ -32,7 +32,7 @@ export function Header({ light = false, language = "it" }: { light?: boolean; la
 }
 
 export function Footer({ language = "it" }: { language?: Language }) {
-  return <footer className="site-footer"><div><span className="footer-mark">AH</span><p>{common[language].quote}</p></div><div className="footer-links"><a href="tel:+393520879599">+39 352 087 9599</a><a href="mailto:alexandrabhuaman@gmail.com">alexandrabhuaman@gmail.com</a><a href="https://instagram.com/aledevuelo.art" target="_blank" rel="noreferrer">@aledevuelo.art</a></div><small>© {new Date().getFullYear()} Alexandra Huaman</small></footer>;
+  return <footer className="site-footer"><div><span className="footer-mark">AH</span><p>{common[language].quote}</p></div><div className="footer-links"><span className="footer-location">{language === "it" ? "Roma, Italia · Disponibile in tutto il mondo" : "Rome, Italy · Available worldwide"}</span><a href="tel:+393520879599">+39 352 087 9599</a><a href="mailto:alexandrabhuaman@gmail.com">alexandrabhuaman@gmail.com</a><a href="https://instagram.com/aledevuelo.art" target="_blank" rel="noreferrer">@aledevuelo.art</a></div><small>© {new Date().getFullYear()} Alexandra Huaman</small></footer>;
 }
 
 export function Page({ kicker, title, intro, children, language = "it" }: { kicker: string; title: ReactNode; intro?: string; children: ReactNode; language?: Language }) {
@@ -41,7 +41,7 @@ export function Page({ kicker, title, intro, children, language = "it" }: { kick
 
 export function ContactForm({ language = "it" }: { language?: Language }) {
   const [sent, setSent] = useState(false);
-  const c = language === "it" ? { name:"Come ti chiami?", namePlaceholder:"Il tuo nome", email:"La tua email", need:"Di cosa hai bisogno?", options:["Lezioni individuali","Percorso di gruppo","Workshop introduttivo","Collaborazione professionale"], tell:"Raccontami qualcosa", message:"Il tuo messaggio...", send:"Invia la richiesta →", sent:"Apri la tua email →", subject:"Richiesta dal sito" } : { name:"What’s your name?", namePlaceholder:"Your name", email:"Your email", need:"What are you looking for?", options:["One-to-one sessions","Group program","Introductory workshop","Professional collaboration"], tell:"Tell me a little more", message:"Your message...", send:"Send request →", sent:"Open your email →", subject:"Website enquiry" };
+  const c = language === "it" ? { name:"Come ti chiami?", namePlaceholder:"Il tuo nome", email:"La tua email", need:"Di cosa hai bisogno?", options:["Performance o evento","Lezioni individuali","Percorso di gruppo","Workshop introduttivo","Collaborazione professionale"], tell:"Raccontami qualcosa", message:"Il tuo messaggio...", send:"Invia la richiesta →", sent:"Apri la tua email →", subject:"Richiesta dal sito" } : { name:"What’s your name?", namePlaceholder:"Your name", email:"Your email", need:"What are you looking for?", options:["Performance or event","One-to-one sessions","Group program","Introductory workshop","Professional collaboration"], tell:"Tell me a little more", message:"Your message...", send:"Send request →", sent:"Open your email →", subject:"Website enquiry" };
   function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);

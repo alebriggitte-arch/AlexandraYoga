@@ -10,10 +10,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const h = await headers();
   const host = h.get("x-forwarded-host") ?? h.get("host") ?? "localhost:3000";
   const protocol = h.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const image = `${protocol}://${host}/og.png`;
-  const title = "Alexandra Huaman — Movimento, consapevolezza e benessere";
-  const description = "Danza, movimento consapevole e arti circensi con Alexandra Huaman.";
-  return { title, description, openGraph: { title, description, images: [{ url: image, width: 1200, height: 630, alt: "Alexandra Huaman — movimento, consapevolezza e benessere" }] }, twitter: { card: "summary_large_image", title, description, images: [image] } };
+  const image = `${protocol}://${host}/og-warm.png`;
+  const title = "Alexandra Huaman — Danza, circo e movimento";
+  const description = "Artista performativa peruviana con base a Roma: danza, circo, movimento, formazione e progetti internazionali.";
+  return { title, description, openGraph: { title, description, images: [{ url: image, width: 1729, height: 910, alt: "Alexandra Huaman — danza, circo e movimento" }] }, twitter: { card: "summary_large_image", title, description, images: [image] } };
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
