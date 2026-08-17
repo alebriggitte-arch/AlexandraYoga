@@ -34,7 +34,7 @@ export function Header({ light = false, language = "it" }: { light?: boolean; la
 }
 
 export function Footer({ language = "it" }: { language?: Language }) {
-  return <footer className="site-footer"><div><span className="footer-mark">AH</span><p>{common[language].quote}</p></div><div className="footer-links"><a href="tel:+393276874976">+39 327 687 4976</a><a href="mailto:alexandra.huaman.movimento@gmail.com">alexandra.huaman.movimento@gmail.com</a><a href="https://instagram.com/alexandra.movimento" target="_blank" rel="noreferrer">@alexandra.movimento</a></div><small>© {new Date().getFullYear()} Alexandra Huaman</small></footer>;
+  return <footer className="site-footer"><div><span className="footer-mark">AH</span><p>{common[language].quote}</p></div><div className="footer-links"><a href="tel:+393520879599">+39 352 087 9599</a><a href="mailto:alexandrabhuaman@gmail.com">alexandrabhuaman@gmail.com</a><a href="https://instagram.com/aledevuelo.art" target="_blank" rel="noreferrer">@aledevuelo.art</a></div><small>© {new Date().getFullYear()} Alexandra Huaman</small></footer>;
 }
 
 export function Page({ kicker, title, intro, children, language = "it" }: { kicker: string; title: ReactNode; intro?: string; children: ReactNode; language?: Language }) {
@@ -48,8 +48,8 @@ export function ContactForm({ language = "it" }: { language?: Language }) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const subject = encodeURIComponent(`${c.subject} — ${data.get("nome")}`);
-    const body = encodeURIComponent(`Nome: ${data.get("nome")}\nEmail: ${data.get("email")}\nInteresse: ${data.get("interesse")}\n\n${data.get("messaggio")}`);
-    window.location.href = `mailto:alexandra.huaman.movimento@gmail.com?subject=${subject}&body=${body}`;
+    const body = encodeURIComponent(language === "it" ? `Nome: ${data.get("nome")}\nEmail: ${data.get("email")}\nInteresse: ${data.get("interesse")}\n\n${data.get("messaggio")}` : `Name: ${data.get("nome")}\nEmail: ${data.get("email")}\nInterest: ${data.get("interesse")}\n\n${data.get("messaggio")}`);
+    window.location.href = `mailto:alexandrabhuaman@gmail.com?subject=${subject}&body=${body}`;
     setSent(true);
   }
   return <form className="contact-form" onSubmit={submit}><label>{c.name}<input required name="nome" placeholder={c.namePlaceholder}/></label><label>{c.email}<input required name="email" type="email" placeholder="name@email.com"/></label><label>{c.need}<select name="interesse">{c.options.map(option => <option key={option}>{option}</option>)}</select></label><label>{c.tell}<textarea required name="messaggio" rows={4} placeholder={c.message}/></label><button type="submit">{sent ? c.sent : c.send}</button></form>;
