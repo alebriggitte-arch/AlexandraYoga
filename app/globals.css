@@ -55,3 +55,18 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 .page-intro{background:radial-gradient(circle at 80% 10%,rgba(185,111,77,.14),transparent 30%),var(--paper)}.story,.collab-options,.contact-form{background:var(--ivory)}.site-footer{background:var(--deep)}.footer-location{color:#f0c8ae;text-transform:uppercase;letter-spacing:.12em;font-size:9px;margin-bottom:5px}.skill-mark{color:rgba(164,95,72,.16)}.path-photo span{background:rgba(87,54,45,.94)}.seal{background:rgba(79,47,38,.94)}
 .international-profile{display:grid;grid-template-columns:.85fr 2fr;gap:7vw;padding:95px 7vw;background:#d9aa90;color:var(--ink)}.international-profile h2{font:400 clamp(48px,5vw,76px)/.92 var(--font-display);letter-spacing:-.04em;margin:20px 0}.international-profile .eyebrow{color:#6d3727}.profile-facts{display:grid;grid-template-columns:repeat(3,1fr);align-items:stretch}.profile-facts article{padding:25px 2.5vw;border-left:1px solid rgba(77,43,34,.25)}.profile-facts small{font-size:10px;color:#773d2d;letter-spacing:.14em}.profile-facts h3{font:400 clamp(30px,3vw,46px)/1 var(--font-display);margin:28px 0 18px}.profile-facts p{font-size:12px;line-height:1.75;color:#4a3029;margin:0}.contact-location{display:grid;gap:7px;padding:0 0 22px;border-bottom:1px solid rgba(255,255,255,.22);font-size:13px;color:#fff}.contact-location small{color:#efb991;text-transform:uppercase;font-size:10px;letter-spacing:.13em}
 @media(max-width:900px){.international-profile{grid-template-columns:1fr;padding:70px 24px;gap:35px}.profile-facts{grid-template-columns:1fr}.profile-facts article{border-left:0;border-top:1px solid rgba(77,43,34,.25);padding:28px 0}.profile-facts h3{margin:15px 0 10px}.footer-location{font-size:10px}}
+
+/* Alexandra's signature and three-language selector */
+.wordmark .wordmark-logo{position:relative;display:block;width:42px;height:48px;border:0;border-radius:0;overflow:hidden;flex:0 0 auto}
+.wordmark-logo img,.footer-mark img{position:absolute;width:47px;height:auto;left:50%;top:50%;transform:translate(-50%,-50%) scale(1.06)}
+.header-dark .wordmark-logo img{mix-blend-mode:multiply}
+.site-header:not(.header-dark) .wordmark-logo img,.footer-mark img{filter:invert(1);mix-blend-mode:screen}
+.footer-mark{position:relative;width:58px;height:62px;border:0;border-radius:0;display:block;overflow:hidden;flex:0 0 auto}
+.footer-mark img{width:61px}
+.language-picker{display:flex;align-items:center;gap:3px;padding:3px;border:1px solid currentColor;border-radius:999px;font-size:9px;line-height:1;letter-spacing:.1em}
+.language-picker a{min-width:28px;height:25px;display:grid;place-items:center;border-radius:999px;opacity:.62;transition:background-color .35s,color .35s,opacity .35s,transform .35s}
+.language-picker a:hover{opacity:1;transform:translateY(-1px)}
+.language-picker a.selected{background:rgba(255,255,255,.2);opacity:1;font-weight:600}
+.header-dark .language-picker a.selected{background:var(--ink);color:var(--paper)}
+.language-picker.mobile-language{display:none}
+@media(max-width:1180px){.language-picker.mobile-language{display:flex;color:white}}

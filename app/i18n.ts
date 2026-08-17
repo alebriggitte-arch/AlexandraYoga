@@ -1,12 +1,12 @@
-export type Language = "it" | "en";
+export type Language = "it" | "en" | "es";
 
 export async function resolveLanguage(searchParams?: Promise<Record<string, string | string[] | undefined>>): Promise<Language> {
   const params = searchParams ? await searchParams : {};
-  return params.lang === "en" ? "en" : "it";
+  return params.lang === "en" || params.lang === "es" ? params.lang : "it";
 }
 
 export function localizedHref(href: string, language: Language) {
-  return language === "en" ? `${href}?lang=en` : href;
+  return language === "it" ? href : `${href}?lang=${language}`;
 }
 
 export const common = {
@@ -31,5 +31,16 @@ export const common = {
     tagline: "Movement · Awareness · Wellbeing",
     quote: "“Movement is freedom, listening and transformation.”",
     languageLabel: "Language",
+  },
+  es: {
+    nav: ["Sobre mí", "Programas", "Experiencia", "Colaboraciones"],
+    talk: "Hablemos",
+    menuOpen: "Abrir el menú",
+    menuClose: "Cerrar el menú",
+    menuHome: "Inicio",
+    menuContact: "Contacto",
+    tagline: "Movimiento · Conciencia · Bienestar",
+    quote: "“El movimiento es libertad, escucha y transformación.”",
+    languageLabel: "Idioma",
   },
 } as const;
