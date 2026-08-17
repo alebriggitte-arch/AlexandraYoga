@@ -29,7 +29,7 @@ export function Header({ light = false, language = "it" }: { light?: boolean; la
   return <>
     <input className="menu-toggle-control" id="site-menu-toggle" type="checkbox" aria-label={copy.menuOpen}/>
     <header className={`site-header ${light ? "header-dark" : ""}`}>
-      <a className="wordmark" href={localizedHref("/", language)} aria-label="Alexandra Huaman — home"><span className="wordmark-logo" aria-hidden="true"><img src="/alexandra-monogram-source.png" alt=""/></span><strong>Alexandra Huaman</strong></a>
+      <a className="wordmark" href={localizedHref("/", language)} aria-label="Alexandra Huaman — home"><span className="wordmark-logo" aria-hidden="true"><img src="/alexandra-monogram-transparent.png" alt=""/></span><strong>Alexandra Huaman</strong></a>
       <nav aria-label="Navigazione principale">{nav.map(([, href], i) => <a className={path === href ? "active" : ""} key={href} href={localizedHref(href, language)}>{copy.nav[i]}</a>)}</nav>
       <div className="header-actions"><LanguagePicker language={language} path={path}/><a className="contact-link" href={localizedHref("/contatti", language)}>{copy.talk} <span>↗</span></a></div>
       <label className="menu-button" htmlFor="site-menu-toggle" aria-hidden="true"><i></i><i></i></label>
@@ -44,7 +44,7 @@ export function Header({ light = false, language = "it" }: { light?: boolean; la
 
 export function Footer({ language = "it" }: { language?: Language }) {
   const location = language === "it" ? "Roma, Italia · Disponibile in tutto il mondo" : language === "es" ? "Roma, Italia · Disponible en todo el mundo" : "Rome, Italy · Available worldwide";
-  return <footer className="site-footer"><div><span className="footer-mark" aria-hidden="true"><img src="/alexandra-monogram-source.png" alt=""/></span><p>{common[language].quote}</p></div><div className="footer-links"><span className="footer-location">{location}</span><a href="tel:+393520879599">+39 352 087 9599</a><a href="mailto:alexandrabhuaman@gmail.com">alexandrabhuaman@gmail.com</a><a href="https://instagram.com/aledevuelo.art" target="_blank" rel="noreferrer">@aledevuelo.art</a></div><small>© {new Date().getFullYear()} Alexandra Huaman</small></footer>;
+  return <footer className="site-footer"><div><span className="footer-mark" aria-hidden="true"><img src="/alexandra-monogram-transparent.png" alt=""/></span><p>{common[language].quote}</p></div><div className="footer-links"><span className="footer-location">{location}</span><a href="tel:+393520879599">+39 352 087 9599</a><a href="mailto:alexandrabhuaman@gmail.com">alexandrabhuaman@gmail.com</a><a href="https://instagram.com/aledevuelo.art" target="_blank" rel="noreferrer">@aledevuelo.art</a></div><small>© {new Date().getFullYear()} Alexandra Huaman</small></footer>;
 }
 
 export function Page({ kicker, title, intro, children, language = "it" }: { kicker: string; title: ReactNode; intro?: string; children: ReactNode; language?: Language }) {
