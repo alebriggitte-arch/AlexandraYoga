@@ -79,7 +79,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   background-position:center,right center;
   background-repeat:no-repeat;
 }
-.image-about{background-position:center 38%}
+.image-about{background-position:center 42%}
 .image-stretch{background-position:center 88%}
 .image-barre{background-position:center 84%}
 .image-realing{background-position:center 78%}
@@ -91,7 +91,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
     background-size:100% 100%,auto 100%;
     background-position:center,center;
   }
-  .image-about{background-position:center 35%}
+  .image-about{background-position:center 40%}
   .image-stretch{background-position:center 90%}
   .image-barre,.image-collab{background-position:center 86%}
   .image-realing{background-position:center 80%}
