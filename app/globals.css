@@ -13,6 +13,7 @@
 /* Shared editorial pages */
 .inner-page{min-height:100vh;animation:page-arrive .8s ease both}@keyframes page-arrive{from{opacity:0}to{opacity:1}}.page-intro{min-height:420px;padding:100px 6vw 64px;position:relative;border-bottom:1px solid var(--line);background:radial-gradient(circle at 80% 10%,rgba(163,107,44,.08),transparent 27%),var(--paper)}.eyebrow.dark{color:var(--olive);opacity:1}.page-intro h1{font-family:var(--font-display);font-size:clamp(66px,8vw,128px);font-weight:400;line-height:.75;letter-spacing:-.045em;margin:35px 0}.page-intro h1 em{font-size:.64em;color:var(--olive);font-weight:400}.page-lede{position:absolute;right:7vw;bottom:65px;max-width:430px;font-size:13px;line-height:1.8;color:#615b54}.page-number{position:absolute;right:6vw;top:100px;text-transform:uppercase;letter-spacing:.17em;font-size:9px;color:var(--bronze)}
 .image-stretch{background-image:url('/alexandra-photo-stretch.jpg')}.image-barre{background-image:url('/alexandra-photo-barre.jpg')}.image-realing{background-image:url('/alexandra-photo-realing.jpg')}.image-about{background-image:url('/alexandra-photo-about.jpg')}.image-collab{background-image:url('/alexandra-photo-collab.jpg')}.image-panel{background-size:cover;background-position:center;min-height:600px;overflow:hidden;transition:background-size 1.2s ease}.image-panel:hover{background-size:106%}.about-grid{display:grid;grid-template-columns:55% 45%;min-height:720px}.about-grid .image-panel{position:relative}.about-grid .image-panel span{position:absolute;left:30px;bottom:30px;background:rgba(250,248,243,.9);padding:12px 16px;font-size:9px;text-transform:uppercase;letter-spacing:.15em}.story{padding:9vw 7vw;display:flex;flex-direction:column;justify-content:center;background:var(--ivory)}.story p{line-height:1.9;font-size:13px}.story .dropcap:first-letter{font:72px/ .75 var(--font-display);float:left;margin:9px 10px 0 0;color:var(--bronze)}.story blockquote{font:italic 30px/1.2 var(--font-display);color:var(--olive);margin:40px 0}.inline-arrow{font-size:10px;text-transform:uppercase;letter-spacing:.14em;border-bottom:1px solid var(--ink);padding:0 0 8px;display:flex;justify-content:space-between;max-width:230px;transition:max-width .5s,color .4s}.inline-arrow:hover{max-width:260px;color:var(--bronze)}.values{display:grid;grid-template-columns:repeat(3,1fr);padding:90px 6vw;gap:0}.values article{padding:20px 5vw;border-left:1px solid var(--line)}.values small,.skill-grid article>small{color:var(--bronze);font-size:9px}.values h2,.skill-grid h2,.path-copy h2,.collab-options h2{font:400 38px var(--font-display);margin:18px 0}.values p{font-size:12px;line-height:1.8;color:#6c655e}.site-footer{background:#30362c;color:var(--ivory);padding:70px 6vw 28px;display:grid;grid-template-columns:1fr 1.5fr;gap:60px}.site-footer>div:first-child{display:flex;gap:25px;align-items:center}.footer-mark{width:55px;height:55px;border:1px solid rgba(255,255,255,.5);border-radius:50%;display:grid;place-items:center;font:18px var(--font-display)}.site-footer p{font:italic 21px var(--font-display);max-width:330px}.footer-links{display:grid;align-content:center;gap:12px;font-size:11px}.footer-links a{transition:color .3s}.footer-links a:hover{color:#d1ae7f}.site-footer>small{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding-top:25px;font-size:8px;letter-spacing:.12em;text-transform:uppercase;opacity:.6}
+.image-approach{background-image:url('/alexandra-photo-approach.jpg')}
 .cv-section{display:grid;grid-template-columns:34% 66%;padding:110px 6vw;background:var(--paper);border-top:1px solid var(--line)}.cv-heading{padding-right:7vw}.cv-heading h2,.credits-section h2{font:400 clamp(48px,5vw,76px)/.9 var(--font-display);letter-spacing:-.04em;margin:22px 0}.cv-heading>p:last-child,.values-intro h2{font-size:13px;line-height:1.85;color:#665f57}.cv-timeline article{display:grid;grid-template-columns:120px 1fr 1.4fr;gap:30px;padding:27px 0;border-top:1px solid var(--line);align-items:start}.cv-timeline small,.credits-section small{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze)}.cv-timeline h3,.credits-section h3{font:400 25px/1.05 var(--font-display);margin:0}.cv-timeline p,.credits-section article p{font-size:11px;line-height:1.7;margin:0;color:#6a635c}.values-intro{padding:90px 11vw 0;display:grid;grid-template-columns:1fr 2fr;gap:50px}.values-intro h2{font:400 clamp(28px,3vw,44px)/1.15 var(--font-display);color:var(--ink);max-width:740px;margin:0}.credits-section{background:var(--deep);color:var(--ivory);display:grid;grid-template-columns:1fr 1.4fr;padding:100px 7vw;gap:8vw}.credits-section>div:last-child article{display:grid;grid-template-columns:75px 1fr 1.2fr;gap:24px;padding:25px 0;border-top:1px solid rgba(255,255,255,.18)}.credits-section h3{color:white}.credits-section article p{color:#c8c5bc}.credits-section .eyebrow{color:#d1ae7f}
 
 /* Programs */
@@ -134,4 +135,44 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
     background-size:cover;
     background-position:center;
   }
+}
+
+/* Portrait-led expertise and collaboration imagery */
+@media(min-width:901px){
+  .method-banner,
+  .collab-layout{
+    width:100%;
+    max-width:1780px;
+    margin-inline:auto;
+    min-height:0;
+    grid-template-columns:42% 58%;
+    align-items:stretch;
+  }
+  .method-banner{
+    box-shadow:0 0 0 100vmax var(--deep);
+    clip-path:inset(0 -100vmax);
+  }
+  .method-banner .image-panel,
+  .collab-photo{
+    width:100%;
+    min-height:0;
+    aspect-ratio:4/5;
+    background-size:cover;
+  }
+  .method-banner .image-panel:hover{background-size:cover}
+  .method-banner>div:last-child{padding:clamp(60px,7vw,120px)}
+}
+.image-approach{background-position:center 66%}
+.image-collab{background-position:center 88%}
+@media(max-width:900px){
+  .method-banner .image-panel,
+  .collab-photo{
+    width:100%;
+    min-height:0;
+    aspect-ratio:4/5;
+    background-size:cover;
+  }
+  .method-banner .image-panel:hover{background-size:cover}
+  .image-approach{background-position:center 66%}
+  .image-collab{background-position:center 88%}
 }
