@@ -97,3 +97,41 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   .image-realing{background-position:center 80%}
   .path-photo{height:360px;min-height:360px}
 }
+
+/* Editorial program cards: preserve portrait photography on every viewport */
+@media(min-width:901px){
+  .path-list{
+    width:100%;
+    max-width:1780px;
+    margin-inline:auto;
+    padding-inline:clamp(48px,6vw,96px);
+  }
+  .path-card{
+    min-height:0;
+    align-items:center;
+    grid-template-columns:42% 58%;
+  }
+  .path-card:nth-child(even){grid-template-columns:58% 42%}
+  .path-photo{
+    width:100%;
+    height:auto;
+    min-height:0;
+    aspect-ratio:2/3;
+    background-size:cover;
+    background-position:center;
+  }
+  .path-copy,
+  .path-card:nth-child(even) .path-copy{
+    padding:40px clamp(50px,5vw,90px);
+  }
+}
+@media(max-width:900px){
+  .path-photo{
+    width:100%;
+    height:auto;
+    min-height:0;
+    aspect-ratio:2/3;
+    background-size:cover;
+    background-position:center;
+  }
+}
